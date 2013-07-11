@@ -1,0 +1,16 @@
+{
+  "name": "surf-board-renting",
+  "version": "0.0.1",
+  "description": "Symfony Standard Edition ========================",
+  "main": "web/app.php",
+  "scripts": {
+    "test": "phpunit -c app/"
+  },
+  "repository": "",
+  "author": "Christian Soronellas <csoronellas@emagister.com>",
+  "license": "BSD",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "less": "~1.4.1"
+  }
+}

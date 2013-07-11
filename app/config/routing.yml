@@ -1,0 +1,5 @@
+surf_front:
+    resource: "@SurfFrontBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
