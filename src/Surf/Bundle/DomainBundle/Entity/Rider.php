@@ -46,6 +46,13 @@ class Rider
      * @ORM\OneToMany(targetEntity="Surf\Bundle\DomainBundle\Entity\Board", mappedBy="rider")
      **/
     private $boards;
+    /**
+     * @ORM\ManyToOne(targetEntity="Surf\Bundle\DomainBundle\Entity\Spot", inversedBy="riders")
+     *
+     * @var \Surf\Bundle\DomainBundle\Entity\Spot
+     */
+    private $spot;
+
 
 
     /**
@@ -126,7 +133,30 @@ class Rider
     {
         return $this->email;
     }
+
     /**
+     * Set spot
+     *
+     * @param \Surf\Bundle\DomainBundle\Entity\Spot $spot
+     * @return Rider
+     */
+    public function setSpot(\Surf\Bundle\DomainBundle\Entity\Spot $spot = null)
+    {
+        $this->spot = $spot;
+    
+        return $this;
+    }
+
+    /**
+     * Get spot
+     *
+     * @return \Surf\Bundle\DomainBundle\Entity\Spot 
+     */
+    public function getSpot()
+    {
+        return $this->spot;
+    }
+}    /**
      * Constructor
      */
     public function __construct()
