@@ -1,0 +1,27 @@
+{% extends 'SurfFrontBundle::home.html.twig' %}
+
+{% block body %}
+{{ parent() }}
+
+<div class="container marketing" style="margin-top: 100px;">
+
+    <table>
+    {% for spot in spots %}
+        <tr class="spot">
+            <td>{{ spot.id }}</td>
+            <td>{{ spot.name }}</td>
+            <td>{{ spot.difficulty }}</td>
+            <td>{{ spot.longitude }}</td>
+            <td>{{ spot.latitude }}</td>
+        </tr>
+    {% endfor %}
+    </table>
+
+    <!-- FOOTER -->
+    <footer>
+        <p class="pull-right"><a href="#">Back to top</a></p>
+        <p>&copy; 2013 Company, Inc. &middot; <a href="#">Privacy</a> &middot; <a href="#">Terms</a></p>
+    </footer>
+
+</div><!-- /.container -->
+{% endblock %}
