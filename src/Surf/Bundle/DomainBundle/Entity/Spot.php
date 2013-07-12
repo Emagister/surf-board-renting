@@ -2,6 +2,7 @@
 
 namespace Surf\Bundle\DomainBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -49,6 +50,12 @@ class Spot
      */
     private $latitude;
 
+    /**
+     * @var ArrayCollection
+     *
+     * @OneToMany(targetEntity="Board", mappedBy="spot")
+     */
+    private $boards;
 
     /**
      * Get id
@@ -151,4 +158,23 @@ class Spot
     {
         return $this->latitude;
     }
+
+    /**
+     * @param Board $board
+     *
+     */
+    public function addBoard($board)
+    {
+        $this->boards[] = $board;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getBoards()
+    {
+        return $this->boards;
+    }
+
+
 }
