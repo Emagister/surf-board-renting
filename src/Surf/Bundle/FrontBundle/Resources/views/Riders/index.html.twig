@@ -1,0 +1,24 @@
+{% extends 'SurfFrontBundle::layout.html.twig' %}
+
+{% block stylesheets %}
+{{ parent() }}
+<style>
+    body {padding-top: 60px;}
+</style>
+{% endblock stylesheets %}
+
+{% block body %}
+    {{ include('SurfFrontBundle::menu.html.twig') }}
+    <div class="container">
+        <h1>Riders</h1>
+        <table>
+        {% for rider in riders %}
+            <tr>
+                <td>{{ rider.firstName }}</td>
+                <td>{{ rider.lastName }}</td>
+                <td>{{ rider.email }}</td>
+            </tr>
+        {% endfor %}
+        </table>
+    </div> <!-- /container -->
+{% endblock body %}
