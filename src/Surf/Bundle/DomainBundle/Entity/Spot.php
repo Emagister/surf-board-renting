@@ -51,25 +51,18 @@ class Spot
     private $latitude;
 
     /**
-<<<<<<< HEAD
-     * @ORM\OneToMany(targetEntity="Surf\Bundle\DomainBundle\Entity\Rider", mappedBy="spot"))
-     *
-     * @var \Surf\Bundle\DomainBundle\Entity\Rider
-     */
-    private $riders;
-
-    /**
-=======
->>>>>>> 7ff0def5c113a3eb529431ecd8016185783b6fa7
      * @var ArrayCollection
      *
      * @OneToMany(targetEntity="Board", mappedBy="spot")
      */
     private $boards;
-<<<<<<< HEAD
 
-=======
->>>>>>> 7ff0def5c113a3eb529431ecd8016185783b6fa7
+    /**
+     * @ORM\OneToMany(targetEntity="Surf\Bundle\DomainBundle\Entity\Rider", mappedBy="spot"))
+     *
+     * @var \Surf\Bundle\DomainBundle\Entity\Rider
+     */
+    private $riders;
 
     /**
      * Get id
@@ -190,7 +183,6 @@ class Spot
         return $this->boards;
     }
 
-<<<<<<< HEAD
     /**
      * Constructor
      */
@@ -198,7 +190,7 @@ class Spot
     {
         $this->riders = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
+    
     /**
      * Add riders
      *
@@ -208,7 +200,7 @@ class Spot
     public function addRider(\Surf\Bundle\DomainBundle\Entity\Rider $riders)
     {
         $this->riders[] = $riders;
-
+    
         return $this;
     }
 
@@ -225,13 +217,10 @@ class Spot
     /**
      * Get riders
      *
-     * @return \Doctrine\Common\Collections\Collection
+     * @return \Doctrine\Common\Collections\Collection 
      */
     public function getRiders()
     {
         return $this->riders;
     }
-=======
-
->>>>>>> 7ff0def5c113a3eb529431ecd8016185783b6fa7
 }
