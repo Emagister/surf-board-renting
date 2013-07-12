@@ -2,6 +2,7 @@
 
 namespace Surf\Bundle\DomainBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -55,6 +56,26 @@ class Spot
      * @var \Surf\Bundle\DomainBundle\Entity\Rider
      */
     private $riders;
+    /**
+     * @var ArrayCollection
+     *
+     * @OneToMany(targetEntity="Board", mappedBy="spot")
+     */
+    private $boards;
+
+    /**
+     * @ORM\OneToMany(targetEntity="Surf\Bundle\DomainBundle\Entity\Rider", mappedBy="spot"))
+     *
+     * @var \Surf\Bundle\DomainBundle\Entity\Rider
+     */
+    private $riders;
+
+    /**
+     * @var ArrayCollection
+     *
+     * @OneToMany(targetEntity="Board", mappedBy="spot")
+     */
+    private $boards;
 
     /**
      * Get id
@@ -159,13 +180,30 @@ class Spot
     }
 
     /**
+     * @param Board $board
+     *
+     */
+    public function addBoard($board)
+    {
+        $this->boards[] = $board;
+    }
+
+    /**
+     * @return ArrayCollection
+     */
+    public function getBoards()
+    {
+        return $this->boards;
+    }
+
+    /**
      * Constructor
      */
     public function __construct()
     {
         $this->riders = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add riders
      *
@@ -175,7 +213,7 @@ class Spot
     public function addRider(\Surf\Bundle\DomainBundle\Entity\Rider $riders)
     {
         $this->riders[] = $riders;
-    
+
         return $this;
     }
 
@@ -192,7 +230,7 @@ class Spot
     /**
      * Get riders
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getRiders()
     {

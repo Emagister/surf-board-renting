@@ -64,6 +64,11 @@ class Board
      * @ORM\JoinColumn(name="board_id", referencedColumnName="id")
      **/
     private $rider;
+    
+    /**
+     * @ORM\ManyToOne(targetEntity="Surf\Bundle\DomainBundle\Entity\Spot", inversedBy="boards")
+     */
+    private $spot;
 
     /**
      * Get id
@@ -188,6 +193,22 @@ class Board
     public function getWidth()
     {
         return $this->width;
+    }
+
+    /**
+     * @param $spot Spot
+     */
+    public function setSpot($spot)
+    {
+        $this->spot = $spot;
+    }
+
+    /**
+     * @return Spot
+     */
+    public function getSpot()
+    {
+        return $this->spot;
     }
 
     /**
