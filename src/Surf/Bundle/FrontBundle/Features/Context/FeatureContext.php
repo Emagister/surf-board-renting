@@ -6,7 +6,7 @@ use AppKernel;
 use PHPUnit_Framework_Assert;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Behat\Symfony2Extension\Context\KernelAwareInterface;
-use Behat\MinkExtension\Context\MinkContext;
+use Behat\MinkExtension\Context\MinkDictionary;
 
 use Behat\Behat\Context\BehatContext,
     Behat\Behat\Exception\PendingException;
@@ -16,9 +16,10 @@ use Behat\Gherkin\Node\PyStringNode,
 /**
  * Feature context.
  */
-class FeatureContext extends BehatContext //MinkContext if you want to test web
-                  implements KernelAwareInterface
+class FeatureContext extends BehatContext implements KernelAwareInterface
 {
+    use MinkDictionary;
+
     /**
      * @var AppKernel
      */

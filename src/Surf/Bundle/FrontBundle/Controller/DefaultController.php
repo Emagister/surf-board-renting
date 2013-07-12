@@ -16,4 +16,13 @@ class DefaultController extends Controller
     {
         return array();
     }
+
+    /**
+     * @Route("/test")
+     * @Template()
+     */
+    public function testAction()
+    {
+        return array();
+    }
 }
