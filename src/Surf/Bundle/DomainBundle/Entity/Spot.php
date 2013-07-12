@@ -49,6 +49,12 @@ class Spot
      */
     private $latitude;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Surf\Bundle\DomainBundle\Entity\Rider", mappedBy="spot"))
+     *
+     * @var \Surf\Bundle\DomainBundle\Entity\Rider
+     */
+    private $riders;
 
     /**
      * Get id
@@ -150,5 +156,46 @@ class Spot
     public function getLatitude()
     {
         return $this->latitude;
+    }
+
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->riders = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add riders
+     *
+     * @param \Surf\Bundle\DomainBundle\Entity\Rider $riders
+     * @return Spot
+     */
+    public function addRider(\Surf\Bundle\DomainBundle\Entity\Rider $riders)
+    {
+        $this->riders[] = $riders;
+    
+        return $this;
+    }
+
+    /**
+     * Remove riders
+     *
+     * @param \Surf\Bundle\DomainBundle\Entity\Rider $riders
+     */
+    public function removeRider(\Surf\Bundle\DomainBundle\Entity\Rider $riders)
+    {
+        $this->riders->removeElement($riders);
+    }
+
+    /**
+     * Get riders
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getRiders()
+    {
+        return $this->riders;
     }
 }
