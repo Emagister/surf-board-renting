@@ -2,62 +2,20 @@
 
 {% block body %}
 {{ parent() }}
-<!-- Carousel
-    ================================================== -->
-<div id="myCarousel" class="carousel slide">
-    <div class="carousel-inner">
-        <div class="item active">
-            <img src="{{ asset('bundles/surffront/images/surf01.jpg') }}" alt="">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Example headline.</h1>
-                    <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <a class="btn btn-large btn-primary" href="#">Sign up today</a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img src="{{ asset('bundles/surffront/images/surf02.jpg') }}" alt="">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>Another example headline.</h1>
-                    <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <a class="btn btn-large btn-primary" href="#">Learn more</a>
-                </div>
-            </div>
-        </div>
-        <div class="item">
-            <img src="{{ asset('bundles/surffront/images/surf03.jpg') }}" alt="">
-            <div class="container">
-                <div class="carousel-caption">
-                    <h1>One more for good measure.</h1>
-                    <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies vehicula ut id elit.</p>
-                    <a class="btn btn-large btn-primary" href="#">Browse gallery</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
-</div><!-- /.carousel -->
 
+<div class="container marketing" style="margin-top: 100px;">
 
-
-<!-- Marketing messaging and featurettes
-================================================== -->
-<!-- Wrap the rest of the page in another container to center all the content. -->
-
-<div class="container marketing">
-
-
-
-
-    <!-- START THE FEATURETTES -->
-
-
-
-    <!-- /END THE FEATURETTES -->
-
+    <table>
+    {% for spot in spots %}
+        <tr>
+            <td>{{ spot.id }}</td>
+            <td>{{ spot.name }}</td>
+            <td>{{ spot.difficulty }}</td>
+            <td>{{ spot.longitude }}</td>
+            <td>{{ spot.latitude }}</td>
+        </tr>
+    {% endfor %}
+    </table>
 
     <!-- FOOTER -->
     <footer>
