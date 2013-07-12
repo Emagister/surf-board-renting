@@ -9,14 +9,14 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class SpotsController extends Controller
 {
     /**
-     * @Route("/", name="homepage")
+     * @Route("/spots", name="homepage")
      * @Template()
      */
     public function indexAction()
     {
+        $spots = $this->getDoctrine()->getRepository('SurfDomainBundle:Spot')->findAll();
 
-
-        return array();
+        return array('spots' => $spots);
     }
 
     /**
