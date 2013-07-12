@@ -59,6 +59,11 @@ class Board
      */
     private $width;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Surf\Bundle\DomainBundle\Entity\Spot", inversedBy="boards")
+     */
+    private $spot;
+
 
     /**
      * Get id
@@ -184,4 +189,22 @@ class Board
     {
         return $this->width;
     }
+
+    /**
+     * @param $spot Spot
+     */
+    public function setSpot($spot)
+    {
+        $this->spot = $spot;
+    }
+
+    /**
+     * @return Spot
+     */
+    public function getSpot()
+    {
+        return $this->spot;
+    }
+
+
 }
