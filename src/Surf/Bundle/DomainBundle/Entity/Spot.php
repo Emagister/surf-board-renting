@@ -65,6 +65,14 @@ class Spot
     private $riders;
 
     /**
+     * @var ArrayCollection
+     *
+     * @OneToMany(targetEntity="Board", mappedBy="spot")
+     */
+    private $boards;
+
+
+    /**
      * Get id
      *
      * @return integer 
@@ -190,7 +198,7 @@ class Spot
     {
         $this->riders = new \Doctrine\Common\Collections\ArrayCollection();
     }
-    
+
     /**
      * Add riders
      *
@@ -200,7 +208,7 @@ class Spot
     public function addRider(\Surf\Bundle\DomainBundle\Entity\Rider $riders)
     {
         $this->riders[] = $riders;
-    
+
         return $this;
     }
 
@@ -217,7 +225,7 @@ class Spot
     /**
      * Get riders
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @return \Doctrine\Common\Collections\Collection
      */
     public function getRiders()
     {
