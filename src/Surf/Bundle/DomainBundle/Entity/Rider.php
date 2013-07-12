@@ -42,6 +42,13 @@ class Rider
      */
     private $email;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Surf\Bundle\DomainBundle\Entity\Spot", inversedBy="riders")
+     *
+     * @var \Surf\Bundle\DomainBundle\Entity\Spot
+     */
+    private $spot;
+
 
     /**
      * Get id
@@ -120,5 +127,28 @@ class Rider
     public function getEmail()
     {
         return $this->email;
+    }
+
+    /**
+     * Set spot
+     *
+     * @param \Surf\Bundle\DomainBundle\Entity\Spot $spot
+     * @return Rider
+     */
+    public function setSpot(\Surf\Bundle\DomainBundle\Entity\Spot $spot = null)
+    {
+        $this->spot = $spot;
+    
+        return $this;
+    }
+
+    /**
+     * Get spot
+     *
+     * @return \Surf\Bundle\DomainBundle\Entity\Spot 
+     */
+    public function getSpot()
+    {
+        return $this->spot;
     }
 }
