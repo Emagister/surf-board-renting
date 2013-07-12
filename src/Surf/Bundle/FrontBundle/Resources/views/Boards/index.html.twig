@@ -275,16 +275,9 @@
             </div><!-- /.navbar-inner -->
         </div><!-- /.navbar -->
         <section>
-            <div class="board"></div>
-            <div class="board"></div>
-            <div class="board"></div>
-            <div class="board"></div>
-            <div class="board"></div>
-            <div class="board"></div>
-            <div class="board"></div>
-            <div class="board"></div>
-            <div class="board"></div>
-            <div class="board"></div>
+            {% for board in boards %}
+                <div class="board" data-id="{{ board.id }}">{{ board.description }}</div>
+            {% endfor %}
         </section>
     </div> <!-- /.container -->
 </div><!-- /.navbar-wrapper -->
