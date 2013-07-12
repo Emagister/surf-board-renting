@@ -1,5 +1,16 @@
 {% extends 'SurfFrontBundle::layout.html.twig' %}
 
-{% block body %}
+{% block stylesheets %}
+{{ parent() }}
+<style>
+body {padding-top: 60px;}
+</style>
+{% endblock stylesheets %}
 
+{% block body %}
+{{ include('SurfFrontBundle::menu.html.twig') }}
+<div class="container">
+  <h1>Bootstrap starter template</h1>
+  <p>Use this document as a way to quick start any new project.<br> All you get is this message and a barebones HTML document.</p>
+</div> <!-- /container -->
 {% endblock body %}

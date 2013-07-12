@@ -7,6 +7,7 @@ use PHPUnit_Framework_Assert;
 use Symfony\Component\HttpKernel\KernelInterface;
 use Behat\Symfony2Extension\Context\KernelAwareInterface;
 use Behat\MinkExtension\Context\MinkDictionary;
+use Behat\Symfony2Extension\Context\KernelDictionary;
 
 use Behat\Behat\Context\BehatContext,
     Behat\Behat\Exception\PendingException;
@@ -16,14 +17,10 @@ use Behat\Gherkin\Node\PyStringNode,
 /**
  * Feature context.
  */
-class FeatureContext extends BehatContext implements KernelAwareInterface
+class FeatureContext extends BehatContext
 {
     use MinkDictionary;
-
-    /**
-     * @var AppKernel
-     */
-    private $kernel;
+    use KernelDictionary;
 
     /**
      * @var array
@@ -48,17 +45,6 @@ class FeatureContext extends BehatContext implements KernelAwareInterface
     public function __construct(array $parameters)
     {
         $this->parameters = $parameters;
-    }
-
-    /**
-     * Sets HttpKernel instance.
-     * This method will be automatically called by Symfony2Extension ContextInitializer.
-     *
-     * @param KernelInterface $kernel
-     */
-    public function setKernel(KernelInterface $kernel)
-    {
-        $this->kernel = $kernel;
     }
 
     /**
