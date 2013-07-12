@@ -14,6 +14,10 @@ class BoardsController extends Controller
      */
     public function indexAction()
     {
-        return array();
+        $boards = $this->getDoctrine()
+            ->getRepository('SurfDomainBundle:Board')
+            ->findAll();
+
+        return array('boards' => $boards);
     }
 }
