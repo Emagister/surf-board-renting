@@ -9,7 +9,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 class RidersController extends Controller
 {
     /**
-     * @Route("/riders", name="homepage")
+     * @Route("/riders", name="riders")
      * @Template()
      */
     public function indexAction()
