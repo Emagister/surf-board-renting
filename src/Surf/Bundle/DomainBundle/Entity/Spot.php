@@ -51,6 +51,7 @@ class Spot
     private $latitude;
 
     /**
+<<<<<<< HEAD
      * @ORM\OneToMany(targetEntity="Surf\Bundle\DomainBundle\Entity\Rider", mappedBy="spot"))
      *
      * @var \Surf\Bundle\DomainBundle\Entity\Rider
@@ -58,12 +59,17 @@ class Spot
     private $riders;
 
     /**
+=======
+>>>>>>> 7ff0def5c113a3eb529431ecd8016185783b6fa7
      * @var ArrayCollection
      *
      * @OneToMany(targetEntity="Board", mappedBy="spot")
      */
     private $boards;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 7ff0def5c113a3eb529431ecd8016185783b6fa7
 
     /**
      * Get id
@@ -184,6 +190,7 @@ class Spot
         return $this->boards;
     }
 
+<<<<<<< HEAD
     /**
      * Constructor
      */
@@ -224,4 +231,7 @@ class Spot
     {
         return $this->riders;
     }
+=======
+
+>>>>>>> 7ff0def5c113a3eb529431ecd8016185783b6fa7
 }
