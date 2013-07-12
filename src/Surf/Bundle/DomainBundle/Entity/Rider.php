@@ -42,6 +42,11 @@ class Rider
      */
     private $email;
 
+    /**
+     * @ORM\OneToMany(targetEntity="Surf\Bundle\DomainBundle\Entity\Board", mappedBy="rider")
+     **/
+    private $boards;
+
 
     /**
      * Get id
@@ -120,5 +125,45 @@ class Rider
     public function getEmail()
     {
         return $this->email;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->boards = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
+    /**
+     * Add boards
+     *
+     * @param \Surf\Bundle\DomainBundle\Entity\Board $boards
+     * @return Rider
+     */
+    public function addBoard(\Surf\Bundle\DomainBundle\Entity\Board $boards)
+    {
+        $this->boards[] = $boards;
+    
+        return $this;
+    }
+
+    /**
+     * Remove boards
+     *
+     * @param \Surf\Bundle\DomainBundle\Entity\Board $boards
+     */
+    public function removeBoard(\Surf\Bundle\DomainBundle\Entity\Board $boards)
+    {
+        $this->boards->removeElement($boards);
+    }
+
+    /**
+     * Get boards
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getBoards()
+    {
+        return $this->boards;
     }
 }

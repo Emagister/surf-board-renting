@@ -59,6 +59,11 @@ class Board
      */
     private $width;
 
+    /**
+     * @ORM\ManyToOne(targetEntity="Surf\Bundle\DomainBundle\Entity\Rider", inversedBy="boards")
+     * @ORM\JoinColumn(name="board_id", referencedColumnName="id")
+     **/
+    private $rider;
 
     /**
      * Get id
@@ -183,5 +188,28 @@ class Board
     public function getWidth()
     {
         return $this->width;
+    }
+
+    /**
+     * Set rider
+     *
+     * @param \Surf\Bundle\DomainBundle\Entity\Rider $rider
+     * @return Board
+     */
+    public function setRider(\Surf\Bundle\DomainBundle\Entity\Rider $rider = null)
+    {
+        $this->rider = $rider;
+    
+        return $this;
+    }
+
+    /**
+     * Get rider
+     *
+     * @return \Surf\Bundle\DomainBundle\Entity\Rider 
+     */
+    public function getRider()
+    {
+        return $this->rider;
     }
 }
